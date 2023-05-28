@@ -8,12 +8,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body id="gradient">
-    <h1>Background Generator</h1>
-    <h2>Current CSS Background</h2>
-    <h3></h3>
-    <input type="color" name="Color1" id="color1" value="#ffff00" />
-    <input type="color" name="Color2" id="color2" value="#ff0000" />
-    <button id="random">random</button>
+    <section>
+      <h1>Background Generator</h1>
+    </section>
+    <section>
+      <h2>Current CSS Background</h2>
+      <div class="copyGradient">
+        <h3></h3>
+        <button
+          onclick="copyContent()"
+          onmouseout="outFunc()"
+          id="copy"
+          class="tooltip"
+        >
+          <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>copy
+        </button>
+      </div>
+    </section>
+    <section>
+      <input
+        class="color-picker"
+        type="color"
+        name="Color1"
+        id="color1"
+        value="#ffff00"
+      />
+      <input
+        class="color-picker"
+        type="color"
+        name="Color2"
+        id="color2"
+        value="#ff0000"
+      />
+      <button id="random">random</button>
+    </section>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

@@ -8,6 +8,21 @@ let colorInput2 = document.getElementById("color2");
 let bodyGradient = document.getElementById("gradient");
 let randomButton = document.getElementById("random");
 
+const copyContent = async () => {
+  try {
+    await navigator.clipboard.writeText(cssCopy.innerHTML);
+    console.log("Content copied to clipboard");
+    let tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied gradient";
+  } catch (err) {
+    console.error("Failed to copy: ", err);
+  }
+};
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
 const randomHexGenerator = () => {
   let hexNumber = (Math.random() * 0xfffff * 1000000).toString(16);
   return `#${hexNumber.slice(0, 6)}`;
@@ -16,7 +31,7 @@ const setBgAccordingToEvent = () => {
   bodyGradient.style.background = `linear-gradient(to right, ${colorInput1.value}, ${colorInput2.value})`;
 };
 const createCssCodeForGradient = () => {
-  cssCopy.textContent = bodyGradient.style.background + ";";
+  cssCopy.textContent = "background: " + bodyGradient.style.background + ";";
 };
 
 const changeBgAccordingToInputs = () => {
