@@ -29,25 +29,36 @@ section:nth-child(3) {
   gap: 20px;
   align-items: center;
 }
-
+.background {
+  background: blue;
+  mix-blend-mode: luminosity;
+  display: flex;
+  padding: 2rem;
+  border-radius: 2rem;
+}
 h1 {
   font: 600 3.5rem "Raleway", sans-serif;
-  color: rgba(0, 0, 0, 0.5);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5em;
   width: 100%;
+  mix-blend-mode: difference;
+  color: white;
+  margin-right: -10px px;
 }
 h2 {
   font: 400 1.6rem "Raleway", sans-serif;
   font-style: italic;
+  mix-blend-mode: difference;
+  color: white;
 }
 h3 {
   font: 800 1rem "Raleway", sans-serif;
-  color: rgba(0, 0, 0, 0.5);
   text-align: center;
   text-transform: none;
   letter-spacing: 0.02em;
+  mix-blend-mode: difference;
+  color: white;
 }
 button {
   background-color: rgba(0, 0, 0, 0.6);
