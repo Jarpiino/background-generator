@@ -1,45 +1,50 @@
-let css = document.querySelector('h3');
-let color1 = document.querySelector('#color1');
-let color2 = document.querySelector('#color2');
-let body = document.querySelector('#gradient');
-let random = document.querySelector('#random');
-// console.log(css);
-// console.log(color1);
-// console.log(color2);
+// Load the full build.
+// var _ = require("lodash");
+// console.log(_);
 
-function setGradient() {
-    
-    body.style.background = `linear-gradient(to right, ${color1.value}, ${color2.value})`;
-    css.textContent = body.style.background + ';';
-}
+let cssCopy = document.querySelector("h3");
+let colorInput1 = document.getElementById("color1");
+let colorInput2 = document.getElementById("color2");
+let bodyGradient = document.getElementById("gradient");
+let randomButton = document.getElementById("random");
 
-
-color1.addEventListener('input', setGradient);
-color2.addEventListener('input', setGradient);
-
-
-body.style.background = `linear-gradient(to right, ${color1.value}, ${color2.value})`;
-
-css.textContent = body.style.background + ';';
-
-
-
-let random_hex_color_code1 = () => {
-    let m = (Math.random() * 0xfffff * 1000000).toString(16);
-    return `#${m.slice(0, 6)}`;
-    
+const randomHexGenerator = () => {
+  let hexNumber = (Math.random() * 0xfffff * 1000000).toString(16);
+  return `#${hexNumber.slice(0, 6)}`;
 };
-let random_hex_color_code2 = () => {
-    let m = (Math.random() * 0xfffff * 1000000).toString(16);
-    return `#${m.slice(0, 6)}`;
+const setBgAccordingToEvent = () => {
+  bodyGradient.style.background = `linear-gradient(to right, ${colorInput1.value}, ${colorInput2.value})`;
+};
+const createCssCodeForGradient = () => {
+  cssCopy.textContent = bodyGradient.style.background + ";";
 };
 
-random.addEventListener('click', () => {
+const changeBgAccordingToInputs = () => {
+  setBgAccordingToEvent();
+  createCssCodeForGradient();
+};
 
-    color1 = random_hex_color_code1();
-    color2 = random_hex_color_code2();
-    body.style.background = `linear-gradient(to right, ${color1}, ${color2})`;
-    css.textContent = body.style.background + ';';
-    return
-})
-setGradient();
+const changeBgGradientOnRandomButton = () => {
+  setBgAccordingToEvent();
+  createCssCodeForGradient();
+};
+const changeBackgroundOnClick = () => {
+  colorInput1.value = randomHexGenerator();
+  colorInput2.value = randomHexGenerator();
+  changeBgGradientOnRandomButton();
+};
+
+const setGradientOnPageLoad = () => {
+  randomHex1 = randomHexGenerator();
+  randomHex2 = randomHexGenerator();
+  colorInput1.value = randomHex1;
+  colorInput2.value = randomHex2;
+  bodyGradient.style.background = `linear-gradient(to right, ${randomHex1}, ${randomHex2})`;
+  createCssCodeForGradient();
+};
+setGradientOnPageLoad();
+
+colorInput1.addEventListener("input", changeBgAccordingToInputs);
+colorInput2.addEventListener("input", changeBgAccordingToInputs);
+
+randomButton.addEventListener("click", () => changeBackgroundOnClick());
