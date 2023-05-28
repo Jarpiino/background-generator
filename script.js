@@ -1,7 +1,3 @@
-// Load the full build.
-// var _ = require("lodash");
-// console.log(_);
-
 let cssCopy = document.querySelector("h3");
 let colorInput1 = document.getElementById("color1");
 let colorInput2 = document.getElementById("color2");
