@@ -14,10 +14,10 @@ const copyContent = async () => {
     console.error("Failed to copy: ", err);
   }
 };
-function outFunc() {
+const outFunc = () => {
   var tooltip = document.getElementById("myTooltip");
   tooltip.innerHTML = "Copy to clipboard";
-}
+};
 
 const randomHexGenerator = () => {
   let hexNumber = (Math.random() * 0xfffff * 1000000).toString(16);
